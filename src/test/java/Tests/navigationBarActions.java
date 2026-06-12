@@ -1,3 +1,5 @@
+package Tests;
+
 import Data.Urls;
 import Pages.Components.NavigationBarComponent;
 import drivers.WebDriverFactory;
