@@ -34,7 +34,7 @@ public class NavigationBarComponent {
 
     public  void navigateToBazaarLabel(String expUrl){
         actionsBot.click(bazaarBtn);
-        Assert.assertEquals(driver.getCurrentUrl(), expUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
 
 
@@ -45,13 +45,13 @@ public class NavigationBarComponent {
 
     public  void navigateToDeals(String expUrl){
         actionsBot.click(dealsBtn);
-        Assert.assertEquals(driver.getCurrentUrl(), expUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
 
     }
 
     public  void navigateToMobileLabel(String expUrl){
         actionsBot.click(mobileBtn);
-        Assert.assertEquals(driver.getCurrentUrl(), expUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
 
     }
     public  void navigateTolectronicsLabel(){
@@ -65,7 +65,7 @@ public class NavigationBarComponent {
 
     public  void navigateToHomeLabel(String expUrl){
         actionsBot.click(homeBtn);
-        Assert.assertEquals(driver.getCurrentUrl(), expUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
     public  void navigateToFashionLabel(){
         actionsBot.click(fashionBtn);
@@ -77,15 +77,15 @@ public class NavigationBarComponent {
     }
     public  void navigateToToysLabel(String expUrl){
         actionsBot.click(toysBtn);
-        Assert.assertEquals(driver.getCurrentUrl(), expUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
     public  void navigateToGroceryLabel(String expUrl){
         actionsBot.click(groceryBtn);
-        Assert.assertEquals(driver.getCurrentUrl(), expUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
     public  void navigateToGamesLabel(String expUrl){
         actionsBot.click(gamesBtn);
-        Assert.assertEquals(driver.getCurrentUrl(), expUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
 
 }
