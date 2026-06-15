@@ -38,9 +38,9 @@ public class NavigationBarComponent {
     }
 
 
-    public  void navigateToSell(){
+    public  void navigateToSell(String expUrl){
         actionsBot.click(sellBtn);
-        Assert.assertTrue(driver.findElement(By.cssSelector("h1.heading")).isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
 
     public  void navigateToDeals(String expUrl){
@@ -54,26 +54,26 @@ public class NavigationBarComponent {
         Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
 
     }
-    public  void navigateTolectronicsLabel(){
+    public  void navigateTolEctronicsLabel(String expUrl){
         actionsBot.click(electronicBtn);
-        Assert.assertTrue(driver.findElement(By.cssSelector("h1>b")).isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
-    public  void navigateToPrimeLabel(){
+    public  void navigateToPrimeLabel(String expUrl){
         actionsBot.click(primeBtn);
-        Assert.assertTrue(driver.findElement(By.id("plp-hero-cta-announce")).isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
 
     public  void navigateToHomeLabel(String expUrl){
         actionsBot.click(homeBtn);
         Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
-    public  void navigateToFashionLabel(){
+    public  void navigateToFashionLabel(String expUrl){
         actionsBot.click(fashionBtn);
-        Assert.assertTrue(driver.findElement(By.cssSelector("h1>b")).isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
-    public  void navigateToAppLabel(){
+    public  void navigateToAppLabel( String expUrl){
         actionsBot.click(appBtn);
-        Assert.assertTrue(driver.findElement(By.cssSelector("h1>b")).isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
     public  void navigateToToysLabel(String expUrl){
         actionsBot.click(toysBtn);

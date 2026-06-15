@@ -1,5 +1,6 @@
 package Tests;
 
+import Base.BaseTest;
 import Data.Urls;
 import Pages.Components.NavigationBarComponent;
 import drivers.WebDriverFactory;
@@ -9,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class NavigationBarTests {
+public class NavigationBarTests  {
 
 
     WebDriver driver;
@@ -28,7 +29,7 @@ public class NavigationBarTests {
     @Test
     public void navigateToSell(){
         new NavigationBarComponent(driver)
-                .navigateToSell();
+                .navigateToSell(Urls.sellUrl);
     }
     @Test
     public void navigateToDealsLabel(){
@@ -43,12 +44,12 @@ public class NavigationBarTests {
     @Test
     public void navigateToElectronicsLabel(){
         new NavigationBarComponent(driver)
-                .navigateTolectronicsLabel();
+                .navigateTolEctronicsLabel(Urls.electronicsUrl);
     }
     @Test
     public void navigateToPrimeLabel() {
         new NavigationBarComponent(driver)
-                .navigateToPrimeLabel();
+                .navigateToPrimeLabel(Urls.primeUrl);
     }
 
     @Test
@@ -59,13 +60,13 @@ public class NavigationBarTests {
     @Test
     public void navigateToFashionLabel() {
         new NavigationBarComponent(driver)
-                .navigateToFashionLabel();
+                .navigateToFashionLabel(Urls.fashionUrl);
     }
 
     @Test
     public void navigateToAppLabel() {
         new NavigationBarComponent(driver)
-                .navigateToAppLabel();
+                .navigateToAppLabel(Urls.appUrl);
     }
     @Test
     public void navigateToToysLabel() {
@@ -79,7 +80,7 @@ public class NavigationBarTests {
     @Test
     public void navigateToGamesLabel() {
         new NavigationBarComponent(driver)
-                .navigateToGamesLabel(Urls.gamedUrl);
+                .navigateToGamesLabel(Urls.gamesUrl);
 
 
     }

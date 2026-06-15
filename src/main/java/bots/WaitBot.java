@@ -1,9 +1,7 @@
 package bots;
 
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
@@ -13,6 +11,7 @@ import java.util.NoSuchElementException;
 public class WaitBot {
 
     private WebDriver driver;
+    private By item;
 
     public WaitBot(WebDriver driver){
         this.driver=driver;
