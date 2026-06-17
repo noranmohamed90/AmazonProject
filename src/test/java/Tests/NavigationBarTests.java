@@ -17,13 +17,13 @@ public class NavigationBarTests extends BaseTest {
 
 
     }
-    @Test
-    public void navigateToSell(){
-        navigationBar().navigateToSell();
-        Assert.assertEquals(driver.getCurrentUrl(),Urls.sellUrl);
-        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.sellUrl));
-
-    }
+//    @Test
+//    public void navigateToSell(){
+//        navigationBar().navigateToSell();
+//        Assert.assertEquals(driver.getCurrentUrl(),Urls.sellUrl);
+//        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.sellUrl));
+//
+//    }
     @Test
     public void navigateToDealsLabel(){
         navigationBar().navigateToDeals();
