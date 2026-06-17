@@ -27,7 +27,9 @@ public class SortPage {
     private final By high2LowBtn = By.id("s-result-sort-select_2");
     private final By reviewsBtn = By.id("s-result-sort-select_3");
     private final By sellersBtn = By.id("s-result-sort-select_5");
+    private final By newArrivalBtn = By.id("s-result-sort-select_4");
     private final By priceList = By.cssSelector("span.a-price-whole");
+    private final By feature = By.cssSelector(".a-dropdown-prompt");
 
 
 
@@ -38,6 +40,10 @@ public class SortPage {
         waitBot.fluentWait().until(ExpectedConditions.visibilityOfElementLocated(sortBtn));
         Assert.assertTrue(driver.findElement(sortBtn).isDisplayed());
         return this;
+    }
+
+    public boolean isSortButtonDisplayed() {
+        return !driver.findElements(sortBtn).isEmpty();
     }
 
     public SortPage sortLowToHigh(){
@@ -62,6 +68,13 @@ public class SortPage {
     public SortPage sortByBestSellers(){
         actionsBot.click(sortBtn);
         actionsBot.click(sellersBtn);
+        return this;
+    }
+    public SortPage sortByNewArrival(){
+        actionsBot.click(sortBtn);
+        actionsBot.click(newArrivalBtn);
+        Assert.assertEquals (actionsBot.getText(feature).trim(),
+                "Newest Arrivals");
         return this;
     }
 

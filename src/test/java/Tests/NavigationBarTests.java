@@ -2,91 +2,105 @@ package Tests;
 
 import Base.BaseTest;
 import Data.Urls;
-import Pages.Components.NavigationBarComponent;
-import drivers.WebDriverFactory;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class NavigationBarTests  {
+public class NavigationBarTests extends BaseTest {
 
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setUp(){
-        driver= WebDriverFactory.initDriver("edge");
-        driver.get(Urls.baseUrl);
-    }
 
     @Test
     public void navigateToBazaarLabel(){
-         new NavigationBarComponent(driver)
-                 .navigateToBazaarLabel(Urls.bazaarUrl);
+        navigationBar().navigateToBazaarLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.bazaarUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.bazaarUrl));
+
+
     }
     @Test
     public void navigateToSell(){
-        new NavigationBarComponent(driver)
-                .navigateToSell(Urls.sellUrl);
+        navigationBar().navigateToSell();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.sellUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.sellUrl));
+
     }
     @Test
     public void navigateToDealsLabel(){
-        new NavigationBarComponent(driver)
-                .navigateToDeals(Urls.dealUrl);
+        navigationBar().navigateToDeals();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.dealUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.dealUrl));
+
     }
     @Test
     public void navigateToMobileLabel(){
-        new NavigationBarComponent(driver)
-                .navigateToMobileLabel(Urls.mobileUrl);
+        navigationBar().navigateToMobileLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.mobileUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.mobileUrl));
+
     }
     @Test
     public void navigateToElectronicsLabel(){
-        new NavigationBarComponent(driver)
-                .navigateTolEctronicsLabel(Urls.electronicsUrl);
+        navigationBar().navigateTolEctronicsLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.electronicsUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.electronicsUrl));
+
     }
     @Test
     public void navigateToPrimeLabel() {
-        new NavigationBarComponent(driver)
-                .navigateToPrimeLabel(Urls.primeUrl);
+        navigationBar().navigateToPrimeLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.primeUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.primeUrl));
+
     }
 
     @Test
     public void navigateToHomeLabel() {
-        new NavigationBarComponent(driver)
-                .navigateToHomeLabel(Urls.HomeUrl);
+        navigationBar().navigateToHomeLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.HomeUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.HomeUrl));
+
     }
     @Test
     public void navigateToFashionLabel() {
-        new NavigationBarComponent(driver)
-                .navigateToFashionLabel(Urls.fashionUrl);
+        navigationBar().navigateToFashionLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.fashionUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.fashionUrl));
+
     }
 
     @Test
     public void navigateToAppLabel() {
-        new NavigationBarComponent(driver)
-                .navigateToAppLabel(Urls.appUrl);
+        navigationBar().navigateToAppLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.appUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.appUrl));
+
+
     }
     @Test
     public void navigateToToysLabel() {
-        new NavigationBarComponent(driver)
-                .navigateToToysLabel(Urls.ToysUrl);
+        navigationBar().navigateToToysLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.ToysUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.ToysUrl));
+
     } @Test
     public void navigateToGroceryLabel() {
-        new NavigationBarComponent(driver)
-                .navigateToGroceryLabel(Urls.groceryUrl);
+        navigationBar().navigateToGroceryLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.groceryUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.groceryUrl));
     }
     @Test
     public void navigateToGamesLabel() {
-        new NavigationBarComponent(driver)
-                .navigateToGamesLabel(Urls.gamesUrl);
-
-
+        navigationBar().navigateToGamesLabel();
+        Assert.assertEquals(driver.getCurrentUrl(),Urls.gamesUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(Urls.gamesUrl));
     }
+    @Test
+    public void navigateToSignInLabel() {
+        navigationBar().navigateToSignInLabel();
+        Assert.assertNotEquals(Urls.baseUrl, Urls.signInUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains("/ap/signin"));
 
-    @AfterMethod
-    public void tearDown(){
-        WebDriverFactory.quitDriver();
+
+
     }
 }

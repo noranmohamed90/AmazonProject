@@ -1,0 +1,18 @@
+{
+  "validProduct": "iphone 17 pro max",
+  "inValidProduct": "msndfknsdfk",
+  "emptyData" :"                 ",
+  "mixLangue": "ايفون 17pro max",
+  "arabicLan": "ايفون 17 برو ماكس",
+  "numericData": "123456789",
+  "dropDownSearch": "iph",
+  "upperCaseSearch": "IPHONE",
+  "specialCharacterSearch": "@#$%",
+  "urlData": "iphone",
+  "validLongTxt" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "invalidLongTxt": "fskfmglrkmgklrjtpowek,fvlds,m blksm'orpqwk,pf[,we;lgrsgk,sfkjsdnfkjsdnkjsd",
+  "mixSamples": "iphone@123",
+  "trailingSpaces" : "   iphone   "
+
+
+}

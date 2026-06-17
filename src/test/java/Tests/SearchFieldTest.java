@@ -1,85 +1,102 @@
 package Tests;
 
+import Base.BaseTest;
 import Data.Urls;
 import Pages.Components.SearchComponent;
-import drivers.WebDriverFactory;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utilties.*;
 
-public class SearchFieldTest {
-    WebDriver driver;
+
+public class SearchFieldTest extends BaseTest {
 
     @Test
     public void validSearchTc(){
-       new SearchComponent(driver)
-               .inputSearchData("iphone 17 ")
-               .clickSearchBtn();
-        Assert.assertTrue(driver.getCurrentUrl().contains("iphone"));
+        search("validProduct")
+               .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("validProduct"));
+        Assert.assertTrue(driver.getCurrentUrl().contains(
+                utilities.JsonUtils.getValue("urlData")));
     }
     @Test
     public void InvalidSearchTc(){
-        new SearchComponent(driver)
-                .inputSearchData("msndfknsdfk")
-                .clickSearchBtn()
+        search("inValidProduct")
                 .verifyNoResultsMessageDisplayed();
     }
     @Test
     public void emptySearchTc(){
-        new SearchComponent(driver)
-                .inputSearchData("                         ")
-                .clickSearchBtn();
+        search("emptyData");
         Assert.assertEquals(driver.getCurrentUrl(), Urls.baseUrl);
     }
     @Test
     public void mixLangSearchTc(){
-        new SearchComponent(driver)
-                .inputSearchData("ايفون 17pro max")
-                .clickSearchBtn()
-                .verifySearchResultsDisplayed();
+        search("mixLangue")
+                .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("mixLangue"));
+    }
+
+    @Test
+    public void arabicLangSearchTc(){
+        search("arabicLan")
+                .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("arabicLan"));
     }
     @Test
     public void numericDataSearchTc(){
-        new SearchComponent(driver)
-                .inputSearchData("123456789")
-                .clickSearchBtn();
-        Assert.assertTrue(driver.getCurrentUrl().contains("123456789"));
+        search("numericData");
+        Assert.assertTrue(driver.getCurrentUrl().contains(
+                utilities.JsonUtils.getValue("numericData")));
     }
     @Test
     public void searchDropDownTc(){
-        new SearchComponent(driver)
-                .inputSearchData("iph")
-                .dropDownVisibility()
-                .dropDownVItem();
-        Assert.assertTrue(driver.getCurrentUrl().contains("iphone"));
+       new SearchComponent(driver)
+               .inputSearchData(utilities.JsonUtils.getValue("dropDownSearch"))
+               .dropDownVisibility()
+               .dropDownVItem();
+        Assert.assertTrue(driver.getCurrentUrl().contains(
+                utilities.JsonUtils.getValue("urlData")));
     }
     @Test
     public void upperCaseSearchTc(){
-        new SearchComponent(driver)
-                .inputSearchData("IPHONE ")
-                .clickSearchBtn();
-        Assert.assertTrue(driver.getCurrentUrl().contains("IPHONE"));
+       search("upperCaseSearch");
+        Assert.assertTrue(driver.getCurrentUrl().contains(
+                utilities.JsonUtils.getValue("upperCaseSearch")));
     }
     @Test
     public void specialCharactersSearchTc(){
-        new SearchComponent(driver)
-                .inputSearchData("@#$%")
-                .clickSearchBtn();
-        Assert.assertTrue( driver.getCurrentUrl().contains("s?k"));
+        search("specialCharacterSearch")
+                .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("specialCharacterSearch"));
+        Assert.assertNotEquals((driver.getCurrentUrl()),Urls.baseUrl);
+    }
+    @Test
+    public void invalidLongTxtTc(){
+        search("invalidLongTxt")
+                .verifyNoResultsMessageDisplayed();
+        Assert.assertNotEquals((driver.getCurrentUrl()),Urls.baseUrl);
+    }
+    @Test
+    public void validLongTxtTc(){
+        search("validLongTxt")
+                .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("validLongTxt"));
+        Assert.assertNotEquals((driver.getCurrentUrl()),Urls.baseUrl);
+    }
+    @Test
+    public void mixDataSearchTc(){
+        search("mixSamples")
+                .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("mixSamples"));
+        Assert.assertNotEquals((driver.getCurrentUrl()),Urls.baseUrl);
+    }
+    @Test
+    public void leadingSearchTc() {
+        search("trailingSpaces")
+                .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("trailingSpaces").trim());
+    }
+
+    @Test
+    public void validSearchWithEnterTc(){
+       searchWithEnter("validProduct")
+               .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("validProduct"));
+        Assert.assertTrue(driver.getCurrentUrl().contains(
+                utilities.JsonUtils.getValue("urlData")));
     }
 
 
 
-    @BeforeMethod
-    public void setUp(){
-        driver= WebDriverFactory.initDriver("edge");
-        driver.get(Urls.baseUrl);
-    }
-
-    @AfterMethod
-    public void tearDown(){
-        WebDriverFactory.quitDriver();
-    }
 }

@@ -1,9 +1,9 @@
 package Pages.Components;
 
+import Pages.LoginPage;
 import bots.ActionsBot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class NavigationBarComponent {
 
@@ -28,64 +28,65 @@ public class NavigationBarComponent {
     private final By toysBtn = By.xpath("//a[.=\"Toys & Games\"]");
     private final By groceryBtn = By.xpath("//a[.=\"Grocery\"]");
     private final By gamesBtn = By.xpath("//a[.=\"Video Games\"]");
+    private final By signInBtn = By.id("nav-link-accountList");
 
 
 
 
-    public  void navigateToBazaarLabel(String expUrl){
+
+    public  void navigateToBazaarLabel(){
         actionsBot.click(bazaarBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
+
     }
 
 
-    public  void navigateToSell(String expUrl){
+    public  void navigateToSell(){
         actionsBot.click(sellBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
 
-    public  void navigateToDeals(String expUrl){
+    public  void navigateToDeals(){
         actionsBot.click(dealsBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
 
     }
 
-    public  void navigateToMobileLabel(String expUrl){
+    public  void navigateToMobileLabel(){
         actionsBot.click(mobileBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
+
 
     }
-    public  void navigateTolEctronicsLabel(String expUrl){
+    public  void navigateTolEctronicsLabel(){
         actionsBot.click(electronicBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
+
     }
-    public  void navigateToPrimeLabel(String expUrl){
+    public  void navigateToPrimeLabel(){
         actionsBot.click(primeBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
+
     }
 
-    public  void navigateToHomeLabel(String expUrl){
+    public  void navigateToHomeLabel(){
         actionsBot.click(homeBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
+
     }
-    public  void navigateToFashionLabel(String expUrl){
+    public  void navigateToFashionLabel(){
         actionsBot.click(fashionBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
+
     }
-    public  void navigateToAppLabel( String expUrl){
+    public  void navigateToAppLabel( ){
         actionsBot.click(appBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
-    public  void navigateToToysLabel(String expUrl){
+    public  void navigateToToysLabel(){
         actionsBot.click(toysBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
-    public  void navigateToGroceryLabel(String expUrl){
+    public  void navigateToGroceryLabel(){
         actionsBot.click(groceryBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
     }
-    public  void navigateToGamesLabel(String expUrl){
+    public  void navigateToGamesLabel(){
         actionsBot.click(gamesBtn);
-        Assert.assertTrue(driver.getCurrentUrl().contains(expUrl));
+    }
+
+    public LoginPage navigateToSignInLabel(){
+        actionsBot.click(signInBtn);
+        return new LoginPage(driver);
     }
 
 }

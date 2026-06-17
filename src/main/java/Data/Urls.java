@@ -13,5 +13,6 @@ public class Urls {
     public static final String electronicsUrl = "https://www.amazon.eg/-/en/%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA/b/?ie=UTF8&node=18018102031&ref_=nav_cs_electronics";
     public static final String primeUrl = "https://www.amazon.eg/-/en/prime?ref_=nav_cs_primelink_nonmember";
     public static final String fashionUrl = "https://www.amazon.eg/-/en/%D9%85%D9%88%D8%B6%D8%A9/b/?ie=UTF8&node=18018165031&ref_=nav_cs_fashion";
+    public static final String signInUrl = "https://www.amazon.eg/-/en/ap/signin?openid.return_to=https%3A%2F%2Fwww.amazon.eg%2F-%2Fen%2Fref%3Dnav_ya_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=egflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0";
     public static final String appUrl = "https://www.amazon.eg/-/en/%D8%A7%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9-%D8%A7%D9%84%D9%85%D9%86%D8%B2%D9%84%D9%8A%D8%A9/b/?ie=UTF8&node=21863792031&ref_=nav_cs_appliances";
 }

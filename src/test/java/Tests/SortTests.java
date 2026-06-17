@@ -1,75 +1,75 @@
 package Tests;
 
-import Data.Urls;
-import Pages.Components.SearchComponent;
+import Base.BaseTest;
 import Pages.SortPage;
-import drivers.WebDriverFactory;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class SortTests {
+import java.util.List;
 
-    WebDriver driver;
+public class SortTests extends BaseTest {
+
 
     @Test
     public void sortBtnVisibilityTC(){
-          new SortPage(driver)
-                  .sortBtnVisibility();
+        search("validProduct");
+        SortTest();
     }
 
     @Test
     public void low2HighBtnTC(){
-        new SortPage(driver)
-                .sortBtnVisibility()
-                .sortLowToHigh();
+        search("validProduct");
+        SortTest().sortLowToHigh();
         Assert.assertTrue(driver.getCurrentUrl().contains("price-asc"));
     }
 
     @Test
     public void high2LowBtnTC(){
-        new SortPage(driver)
-                .sortBtnVisibility()
-                .sortHighToLow();
+        search("validProduct");
+        SortTest().sortHighToLow();
         Assert.assertTrue(driver.getCurrentUrl().contains("price-desc"));
     }
 
     @Test
     public void reviewsBtnTC(){
-        new SortPage(driver)
-                .sortBtnVisibility()
-                .sortByReviews();
+        search("validProduct");
+        SortTest().sortByReviews();
        Assert.assertTrue(driver.getCurrentUrl().contains("review"));
     }
 
     @Test
     public void sellersBtnTC(){
-        new SortPage(driver)
-                .sortBtnVisibility()
-                .sortByBestSellers();
+        search("validProduct");
+       SortTest().sortByBestSellers();
         Assert.assertTrue(driver.getCurrentUrl().contains("popularity"));
     }
-
-
-
-
-
-
-
-
-    @BeforeMethod
-    public void setUp(){
-        driver= WebDriverFactory.initDriver("edge");
-        driver.get(Urls.baseUrl);
-        new SearchComponent(driver)
-                .inputSearchData("iphone 17")
-                .clickSearchBtn();
+    @Test
+    public void newArrivalsBtnTC(){
+        search("validProduct");
+        SortTest().sortByNewArrival();
     }
 
-    @AfterMethod
-    public void tearDown(){
-        WebDriverFactory.quitDriver();
+    @Test
+    public void invalidSortWithoutSearch(){
+        search("inValidProduct")
+                .verifyNoResultsMessageDisplayed();
+        SortPage sortPage = new SortPage(driver);
+        Assert.assertFalse(sortPage.isSortButtonDisplayed());
     }
+
+    @Test
+    public void doubleClickSortBtnTc(){
+        search("validProduct")
+                .verifySearchResultsDisplayed(utilities.JsonUtils.getValue("validProduct"));
+        SortTest().sortByBestSellers().sortByBestSellers();
+
+    }
+    @Test
+    public void sortAfterPageRefreshTC() {
+        search("validProduct");
+        SortTest().sortLowToHigh();
+        driver.navigate().refresh();
+        Assert.assertTrue(driver.getCurrentUrl().contains("price-asc"));
+    }
+
 }

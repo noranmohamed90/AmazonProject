@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ThreadGuard;
 
 public class WebDriverFactory {
 
-    private static ThreadLocal<WebDriver> driverThreadLocal =
+    private static ThreadLocal<WebDriver> driver =
             new ThreadLocal<>();
 
     private static AbstractDriver getDriver(String browser) {
@@ -27,13 +27,16 @@ public class WebDriverFactory {
                 getDriver(browser).createDriver()
         );
 
-        driverThreadLocal.set(driver);
+        WebDriverFactory.driver.set(driver);
 
-        return driverThreadLocal.get();
+        return WebDriverFactory.driver.get();
+    }
+    public static WebDriver getDriver() {
+        return driver.get();
     }
 
     public static void quitDriver() {
 
-        driverThreadLocal.get().quit();
+        driver.get().quit();
     }
 }
