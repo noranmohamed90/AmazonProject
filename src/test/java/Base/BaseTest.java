@@ -4,6 +4,8 @@ import Data.Urls;
 import Pages.Components.NavigationBarComponent;
 import Pages.Components.SearchComponent;
 import Pages.FiltersPage;
+import Pages.LoginPage;
+import Pages.RegisterPage;
 import Pages.SortPage;
 import drivers.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +21,11 @@ public class BaseTest {
 
         driver = WebDriverFactory.initDriver("edge");
         driver.get(Urls.baseUrl);
+    }
+
+    protected LoginPage navigateToLoginPage() {
+        driver.get(Urls.signInUrl);
+        return new LoginPage(driver);
     }
 
     protected SearchComponent search(String productKey) {
@@ -48,6 +55,15 @@ public class BaseTest {
     protected NavigationBarComponent navigationBar() {
         new NavigationBarComponent(driver);
         return new NavigationBarComponent(driver);
+    }
+
+    protected LoginPage loginPage() {
+        new LoginPage(driver);
+        return new LoginPage(driver);
+    }
+
+    protected RegisterPage registerPage() {
+        return new RegisterPage(driver);
     }
 
 
