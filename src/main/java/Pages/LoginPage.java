@@ -9,7 +9,7 @@ public class LoginPage {
 
     private ActionsBot bot;
 
-
+    //1.Locators
     private final By emailInput = By.id("ap_email_login");
     private final By continueButton = By.xpath("//input[@type='submit' and @class='a-button-input']");
     private final By passwordInput = By.id("ap_password");
@@ -21,13 +21,14 @@ public class LoginPage {
     private final By EmptyPasswordError = By.xpath("//div[contains(text(), 'Enter your password')]");
     private final By incorrectPasswordError = By.xpath("//div[@class='a-alert-content']");
 
+    //2.Test Constants
     public static final String EXPECTED_EMAIL_ERROR = "Invalid email address";
     public static final String EXPECTED_PHONE_ERROR = "Invalid mobile number";
     public static final String EXPECTED_PASSWORD_ERROR = "Your password is incorrect";
     public static final String EXPECTED_EMPTY_PASSWORD_ERROR = "Enter your password";
     public static final String EXPECTED_EMPTY_EMAILORPHONE_ERROR = "Enter your mobile number or email";
 
-
+    // 3. constructor
     public LoginPage() {
         this.bot = new ActionsBot(WebDriverFactory.getDriver());
     }
@@ -37,7 +38,7 @@ public class LoginPage {
         this.bot = new ActionsBot(WebDriverFactory.getDriver());
     }
 
-
+    //4. methods
     public void enterEmail(String email) {
         bot.type(emailInput, email);
     }

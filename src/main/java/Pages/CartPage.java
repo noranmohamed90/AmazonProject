@@ -10,16 +10,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-/**
- * كلاس صفحة عربة التسوق (Cart Page)
- * تم تطبيق أفضل ممارسات Fluent POM لتقليل السطور البرمجية في التيست
- */
+
 public class CartPage {
     private ActionsBot bot;
 
-    // =========================================================================
-    // 1. الـ Locators الأساسية والموحدة
-    // =========================================================================
+    // 1. Locators
     private final By goToCartFromOverlayButton = By.id("sw-gtc");
     private final By proceedToCheckoutButton = By.name("proceedToRetailCheckout");
     private final By CheckoutText = By.id("nav-checkout-title-header-text");
@@ -32,17 +27,16 @@ public class CartPage {
     private final By decrementQuantityButton = By.cssSelector("span[data-a-selector='decrement-icon']");
     private final By incrementQuantityButton = By.cssSelector("span[data-a-selector='increment-icon']");
 
-    // =========================================================================
-    // 2. ثوابت الاختبار الديناميكية (Dynamic Test Constants)
-    // =========================================================================
+
+    // 2.Test Constants
+
     public static final int initialQuantity = 2;
     public static final int decreaseQuantity = 1;
     public static final int increaseQuantity = 1;
     public static final int expectedCount = initialQuantity - decreaseQuantity + increaseQuantity;
 
-    // =========================================================================
-    // 3. الـ Constructors
-    // =========================================================================
+    // 3.Constructors
+
     public CartPage() {
         this.bot = new ActionsBot(WebDriverFactory.getDriver());
     }
@@ -51,9 +45,8 @@ public class CartPage {
         this.bot = new ActionsBot(WebDriverFactory.getDriver());
     }
 
-    // =========================================================================
-    // 4. الـ Fluent Methods (كل ميثود تعود بـ CartPage لتتيح الـ Chaining)
-    // =========================================================================
+    // 4.Methods
+
 
 
     public CartPage selectRegularPriceIfPresent() {
@@ -66,7 +59,7 @@ public class CartPage {
                 Thread.sleep(2000);
             }
         } catch (Exception e) {
-            System.out.println("ℹ️ Regular price option not found/applicable.");
+            System.out.println("Regular price option not found/applicable.");
         }
         return this;
     }
@@ -96,7 +89,7 @@ public class CartPage {
 
             clickAddToCart();
         } catch (Exception e) {
-            System.err.println("⚠️ Select Quantity failed: " + e.getMessage());
+            System.err.println("Select Quantity failed: " + e.getMessage());
         }
         return this;
     }
@@ -111,7 +104,7 @@ public class CartPage {
             js.executeScript("arguments[0].click();", btn);
             wait.until(ExpectedConditions.visibilityOfElementLocated(goToCartFromOverlayButton));
         } catch (Exception e) {
-            System.err.println("⚠️ Add to Cart failed: " + e.getMessage());
+            System.err.println("Add to Cart failed: " + e.getMessage());
         }
         return this;
     }
@@ -174,7 +167,7 @@ public class CartPage {
                 js.executeScript("arguments[0].click();", btn);
                 Thread.sleep(3000);
             } catch (Exception e) {
-                System.err.println("⚠️ Can't decrease quantity on iteration " + (i + 1));
+                System.err.println("Can't decrease quantity on iteration " + (i + 1));
                 break;
             }
         }
@@ -190,7 +183,7 @@ public class CartPage {
                 js.executeScript("arguments[0].click();", btn);
                 Thread.sleep(3000);
             } catch (Exception e) {
-                System.err.println("⚠️ Can't increase quantity on iteration " + (i + 1));
+                System.err.println("Can't increase quantity on iteration " + (i + 1));
                 break;
             }
         }
