@@ -1,12 +1,9 @@
 package Base;
 
 import Data.Urls;
+import Pages.*;
 import Pages.Components.NavigationBarComponent;
 import Pages.Components.SearchComponent;
-import Pages.FiltersPage;
-import Pages.LoginPage;
-import Pages.RegisterPage;
-import Pages.SortPage;
 import drivers.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -26,6 +23,15 @@ public class BaseTest {
     protected LoginPage navigateToLoginPage() {
         driver.get(Urls.signInUrl);
         return new LoginPage(driver);
+    }
+
+    protected CartPage loginAndPrepareProduct(String product) {
+        navigateToLoginPage();
+        loginPage().loginWithValidEmail("eslamfathi880@gmail.com", "111111");
+        new CartPage(driver).clearCart();
+        search(product);
+        new ProductPage(driver).listVisible().titleVisibility().chooseProduct();
+        return new CartPage(driver);
     }
 
     protected SearchComponent search(String productKey) {
