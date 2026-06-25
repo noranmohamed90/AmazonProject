@@ -17,7 +17,8 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        WebDriverFactory.initDriver("edge");
+
+         WebDriverFactory.initDriver("edge");
         getDriver().get(Urls.baseUrl);
     }
 
@@ -59,7 +60,6 @@ public class BaseTest {
         new FiltersPage(getDriver());
         return new FiltersPage(getDriver());
     }
-
     protected NavigationBarComponent navigationBar() {
         new NavigationBarComponent(getDriver());
         return new NavigationBarComponent(getDriver());
