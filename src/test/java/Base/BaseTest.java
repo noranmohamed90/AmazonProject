@@ -11,65 +11,67 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    protected WebDriver getDriver() {
+        return WebDriverFactory.getDriver();
+    }
 
     @BeforeMethod
     public void setUp() {
-
-        driver = WebDriverFactory.initDriver("edge");
-        driver.get(Urls.baseUrl);
+        WebDriverFactory.initDriver("edge");
+        getDriver().get(Urls.baseUrl);
     }
 
     protected LoginPage navigateToLoginPage() {
-        driver.get(Urls.signInUrl);
-        return new LoginPage(driver);
+        getDriver().get(Urls.signInUrl);
+        return new LoginPage(getDriver());
     }
 
     protected CartPage loginAndPrepareProduct(String product) {
         navigateToLoginPage();
         loginPage().loginWithValidEmail("eslamfathi880@gmail.com", "111111");
-        new CartPage(driver).clearCart();
+        new CartPage(getDriver()).clearCart();
         search(product);
-        new ProductPage(driver).listVisible().titleVisibility().chooseProduct();
-        return new CartPage(driver);
+        new ProductPage(getDriver()).listVisible().titleVisibility().chooseProduct();
+        return new CartPage(getDriver());
     }
 
     protected SearchComponent search(String productKey) {
-        new SearchComponent(driver)
+        new SearchComponent(getDriver())
                 .searchFieldVisibility()
                 .inputSearchData(utilities.JsonUtils.getValue(productKey))
                 .clickSearchBtn();
-        return new SearchComponent(driver);
+        return new SearchComponent(getDriver());
     }
     protected SearchComponent searchWithEnter(String productKey) {
-        new SearchComponent(driver)
+        new SearchComponent(getDriver())
                 .searchFieldVisibility()
                 .inputSearchData(utilities.JsonUtils.getValue(productKey))
                 .searchWithEnter();
-        return new SearchComponent(driver);
+        return new SearchComponent(getDriver());
     }
     protected SortPage SortTest() {
-       new SortPage(driver)
+       new SortPage(getDriver())
                .sortBtnVisibility();
-       return new SortPage(driver);
+       return new SortPage(getDriver());
     }
 
     protected FiltersPage FilterTest() {
-        new FiltersPage(driver);
-        return new FiltersPage(driver);
+        new FiltersPage(getDriver());
+        return new FiltersPage(getDriver());
     }
+
     protected NavigationBarComponent navigationBar() {
-        new NavigationBarComponent(driver);
-        return new NavigationBarComponent(driver);
+        new NavigationBarComponent(getDriver());
+        return new NavigationBarComponent(getDriver());
     }
 
     protected LoginPage loginPage() {
-        new LoginPage(driver);
-        return new LoginPage(driver);
+        new LoginPage(getDriver());
+        return new LoginPage(getDriver());
     }
 
     protected RegisterPage registerPage() {
-        return new RegisterPage(driver);
+        return new RegisterPage(getDriver());
     }
 
 

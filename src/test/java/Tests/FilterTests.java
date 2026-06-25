@@ -3,8 +3,11 @@ package Tests;
 import Base.BaseTest;
 
 import Pages.FiltersPage;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+
 
 public class FilterTests extends BaseTest {
 
@@ -38,26 +41,22 @@ public class FilterTests extends BaseTest {
 
     @Test
     public void filterWithoutSearchTC() {
-        FiltersPage filters = new FiltersPage(driver);
+        FiltersPage filters = new FiltersPage(getDriver());
         Assert.assertFalse(filters.invalidBrandFilter());
 
     }
     @Test
     public void InvalidSearchFilterTC() {
        search("inValidProduct");
-        Assert.assertFalse(new FiltersPage(driver).invalidBrandFilter());
+        Assert.assertFalse(new FiltersPage(getDriver()).invalidBrandFilter());
     }
     @Test
     public void unSelectfilterTC() {
         search("validProduct");
         FilterTest().filterWithBrand();
-        String filterUrl = driver.getCurrentUrl();
+        String filterUrl = getDriver().getCurrentUrl();
         FilterTest().filterWithBrand();
-        Assert.assertNotEquals(driver.getCurrentUrl(),filterUrl);
-//        FiltersPage filters = new FiltersPage(driver);
-//        filters.filterWithBrand();
-//        filters.filterWithBrand();// toggle off
-//        Assert.assertTrue(true);
+        Assert.assertNotEquals(getDriver().getCurrentUrl(),filterUrl);
     }
 }
 

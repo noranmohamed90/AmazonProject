@@ -18,7 +18,7 @@ public class NavigationBarComponent {
 
    private final By bazaarBtn = By.cssSelector("a[href*='nav_cs_hul_disb']");
     // private final By sellBtn = By.xpath("//a[.=\"Sell\"]");
-     private final By dealsBtn = By.xpath("//a[.=\"Today's Deals\"]");
+     private final By dealsBtn = By.id("nav-primeday");
      private final By mobileBtn = By.xpath("//a[.=\"Mobile Phones\"]");
      private final By electronicBtn = By.xpath("//a[.=\"Electronics\"]");
      private final By primeBtn = By.id("nav-link-amazonprime");

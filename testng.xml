@@ -1,9 +1,16 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="Amazon Suite" parallel="methods" thread-count="4">
-    <test name="Search Tests">
+<suite name="Amazon Suite" parallel="classes" thread-count="6">
+    <test name="Amazon Core Features Tests">
         <classes>
+            <class name="Tests.RegisterTest"/>
+            <class name="Tests.LoginTest"/>
             <class name="Tests.SearchFieldTest"/>
+            <class name="Tests.NavigationBarTests"/>
+            <class name="Tests.FilterTests"/>
+            <class name="Tests.SortTests"/>
+            <class name="Tests.CartTest"/>
+            <class name="Tests.ProductTest"/>
         </classes>
     </test>
 

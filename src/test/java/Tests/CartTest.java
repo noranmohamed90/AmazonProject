@@ -3,12 +3,14 @@ package Tests;
 import Base.BaseTest;
 import Pages.CartPage;
 import Pages.ProductPage;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static Pages.CartPage.*;
 
 
 public class CartTest extends BaseTest {
+
 
     @Test
     public void TC01_RegisterUserCanAddProductToCart() {

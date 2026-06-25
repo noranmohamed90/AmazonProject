@@ -25,8 +25,8 @@ public class PriceUtils {
 
         waitBot.fluentWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
         List<WebElement> prices = driver.findElements(locator);
-        int firstPrice = Integer.parseInt(prices.get(0).getText().replace(",", "").trim());
-        int secondPrice = Integer.parseInt(prices.get(1).getText().replace(",", "").trim());
+        int firstPrice = Integer.parseInt(prices.get(9).getText().replace(",", "").trim());
+        int secondPrice = Integer.parseInt(prices.get(10).getText().replace(",", "").trim());
         Assert.assertTrue(firstPrice <= secondPrice
                 ,"First price " + firstPrice + " is not <= second price " + secondPrice);
         System.out.println(firstPrice +" "+secondPrice);

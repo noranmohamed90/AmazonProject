@@ -54,10 +54,6 @@ public class SearchComponent {
         driver.findElement(searchField).sendKeys(Keys.ENTER);
         return this;
     }
-//    public SearchComponent productclick(){
-//        actionsBot.click(firstProductLink);
-//        return this;
-//    }
 
     public void verifySearchResultsDisplayed(String searchData){
         waitBot.fluentWait().until(ExpectedConditions.visibilityOfElementLocated(searchResultTxt));

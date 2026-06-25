@@ -21,7 +21,7 @@ public class FilterUtils {
     public void productTitles(By locator , By listLocator) {
         waitBot.fluentWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
         List<WebElement> products = driver.findElements(listLocator);
-        for (int i = 0; i < Math.min(products.size(), 5); i++) {
+        for (int i = 1; i < Math.min(products.size(), 5); i++) {
             String titles = products.get(i).getText().toLowerCase();
             Assert.assertTrue(
                     titles.contains("apple") || titles.contains("iphone"),

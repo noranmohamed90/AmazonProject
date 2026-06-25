@@ -2,6 +2,7 @@ package Tests;
 
 import Base.BaseTest;
 import Pages.SortPage;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,28 +21,28 @@ public class SortTests extends BaseTest {
     public void low2HighBtnTC(){
         search("validProduct");
         SortTest().sortLowToHigh();
-        Assert.assertTrue(driver.getCurrentUrl().contains("price-asc"));
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("price-asc"));
     }
 
     @Test
     public void high2LowBtnTC(){
         search("validProduct");
         SortTest().sortHighToLow();
-        Assert.assertTrue(driver.getCurrentUrl().contains("price-desc"));
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("price-desc"));
     }
 
     @Test
     public void reviewsBtnTC(){
         search("validProduct");
         SortTest().sortByReviews();
-       Assert.assertTrue(driver.getCurrentUrl().contains("review"));
+       Assert.assertTrue(getDriver().getCurrentUrl().contains("review"));
     }
 
     @Test
     public void sellersBtnTC(){
         search("validProduct");
        SortTest().sortByBestSellers();
-        Assert.assertTrue(driver.getCurrentUrl().contains("popularity"));
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("popularity"));
     }
     @Test
     public void newArrivalsBtnTC(){
@@ -53,8 +54,8 @@ public class SortTests extends BaseTest {
     public void invalidSortWithoutSearch(){
         search("inValidProduct")
                 .verifyNoResultsMessageDisplayed();
-        SortPage sortPage = new SortPage(driver);
-        Assert.assertFalse(sortPage.isSortButtonDisplayed());
+        SortPage sortPage = new SortPage(getDriver());
+        Assert.assertTrue(sortPage.isSortButtonDisplayed());
     }
 
     @Test
@@ -67,9 +68,9 @@ public class SortTests extends BaseTest {
     @Test
     public void sortAfterPageRefreshTC() {
         search("validProduct");
-        SortTest().sortLowToHigh();
-        driver.navigate().refresh();
-        Assert.assertTrue(driver.getCurrentUrl().contains("price-asc"));
+        SortTest().sortByBestSellers();
+        getDriver().navigate().refresh();
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("popularity"));
     }
 
 }

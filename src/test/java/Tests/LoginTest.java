@@ -2,16 +2,18 @@ package Tests;
 
 import Base.BaseTest;
 import Pages.LoginPage;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
+
     @Test
     public void TC01_loginWithRegisteredEmail() {
         LoginPage loginPage = navigateToLoginPage();
         loginPage.loginWithValidEmail("eslamfathi880@gmail.com", "111111");
-        Assert.assertTrue(driver.getCurrentUrl().contains("amazon.eg"), "Login failed or redirected to a wrong page!");
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("amazon.eg"), "Login failed or redirected to a wrong page!");
     }
 
 
@@ -19,7 +21,7 @@ public class LoginTest extends BaseTest {
     public void TC02_loginWithRegisteredPhoneNumber() {
         LoginPage loginPage = navigateToLoginPage();
         loginPage.loginWithValidPhoneNumber("1096118744", "111111");
-        Assert.assertTrue(driver.getCurrentUrl().contains("amazon.eg"), "Login failed or redirected to a wrong page!");
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("amazon.eg"), "Login failed or redirected to a wrong page!");
     }
 
     @Test
