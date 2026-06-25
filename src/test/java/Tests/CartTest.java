@@ -11,14 +11,14 @@ import static Pages.CartPage.*;
 public class CartTest extends BaseTest {
 
     @Test
-    public void TC01_RegisterUserCanAddProductToCart() {
+    public void TC01_UnRegisteredUserCanAddProductToCart() {
         CartPage cart = loginAndPrepareProduct("pen");
         cart.selectQuantity(2);
         Assert.assertTrue(cart.getCartCount() > 0, "Cart count is not greater than 0");
     }
 
     @Test
-    public void TC02_RegisterUserCanDeleteProductFromCart(){
+    public void TC02_UnRegisteredUserCanDeleteProductFromCart(){
         CartPage cart = loginAndPrepareProduct("pen");
         cart.selectQuantity(2)
                 .clickoncountCart()
@@ -27,7 +27,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void TC03_RegisterUserCanUpdateProductByDecreasingQuantityFromCart(){
+    public void TC03_UnRegisteredUserCanUpdateProductByDecreasingQuantityFromCart(){
         CartPage cart = loginAndPrepareProduct("pen");
         cart.selectQuantity(2)
                 .clickoncountCart()
@@ -36,7 +36,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void TC04_RegisterUserCanUpdateProductByincreasingQuantityFromCart(){
+    public void TC04_UnRegisteredUserCanUpdateProductByincreasingQuantityFromCart(){
         CartPage cart = loginAndPrepareProduct("pen");
         cart.selectQuantity(initialQuantity)
                 .clickoncountCart()
@@ -47,7 +47,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void TC05_RegisterUserCanClickOnProceedToCheckout(){
+    public void TC05_UnRegisteredUserCanClickOnProceedToCheckout(){
         CartPage cart = loginAndPrepareProduct("pen");
         cart.selectQuantity(2)
                 .clickoncountCart()
@@ -56,7 +56,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void TC06_RegisterUserCanSeeHisTotalSelectedProductPrice(){
+    public void TC06_UnRegisteredUserCanSeeHisTotalSelectedProductPrice(){
         CartPage cart = loginAndPrepareProduct("pen");
         cart.selectQuantity(2)
                 .clickoncountCart();
