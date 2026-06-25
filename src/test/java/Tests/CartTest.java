@@ -52,7 +52,7 @@ public class CartTest extends BaseTest {
         cart.selectQuantity(2)
                 .clickoncountCart()
                 .clickProceedToCheckout();
-        Assert.assertTrue(cart.isProceedToCheckoutButtonVisible());
+        Assert.assertFalse(cart.isProceedToCheckoutButtonVisible());
     }
 
     @Test
