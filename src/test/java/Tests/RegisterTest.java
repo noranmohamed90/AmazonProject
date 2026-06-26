@@ -1,13 +1,12 @@
 package Tests;
 
 import Base.BaseTest;
-import Pages.LoginPage;
 import Pages.RegisterPage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class RegisterTest extends BaseTest {
+
 
 
     @Test

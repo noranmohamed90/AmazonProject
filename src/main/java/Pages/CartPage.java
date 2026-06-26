@@ -201,7 +201,6 @@ public class CartPage {
                     JavascriptExecutor js = (JavascriptExecutor) WebDriverFactory.getDriver();
                     js.executeScript("arguments[0].click();", deleteBtn);
 
-                    // انتظار التحديث بعد الحذف
                     Thread.sleep(3000);
                 } catch (Exception e) {
                     break;

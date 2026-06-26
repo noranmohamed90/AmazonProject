@@ -2,11 +2,10 @@ package Tests;
 
 import Base.BaseTest;
 import Pages.SortPage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
+
 
 public class SortTests extends BaseTest {
 

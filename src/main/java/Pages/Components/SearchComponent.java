@@ -25,9 +25,6 @@ public class SearchComponent {
 
     private final By searchField = By.cssSelector("input[name='field-keywords']");
     private final By searchIcon = By.id("nav-search-submit-button");
-//    private final By firstProductLink = By.cssSelector(
-//            "[cel_widget_id=\"MAIN-SEARCH_RESULTS-3"
-//    );
     private final By searchResultTxt = By.cssSelector(".a-color-state.a-text-bold");
     private final By invalidSearchTxt = By.cssSelector("[class='a-size-medium a-color-base a-text-normal']");
     private final By searchDropDown = By.id("sac-autocomplete-results-container");

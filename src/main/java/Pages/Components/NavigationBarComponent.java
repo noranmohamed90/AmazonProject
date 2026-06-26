@@ -17,7 +17,6 @@ public class NavigationBarComponent {
 
 
    private final By bazaarBtn = By.cssSelector("a[href*='nav_cs_hul_disb']");
-    // private final By sellBtn = By.xpath("//a[.=\"Sell\"]");
      private final By dealsBtn = By.id("nav-primeday");
      private final By mobileBtn = By.xpath("//a[.=\"Mobile Phones\"]");
      private final By electronicBtn = By.xpath("//a[.=\"Electronics\"]");
@@ -34,15 +33,10 @@ public class NavigationBarComponent {
 
 
 
-    public  void navigateToBazaarLabel(){
+    public  void navigateToBazaarLabel() {
         actionsBot.click(bazaarBtn);
 
     }
-
-
-//    public  void navigateToSell(){
-//        actionsBot.click(sellBtn);
-//    }
 
     public  void navigateToDeals(){
         actionsBot.click(dealsBtn);
