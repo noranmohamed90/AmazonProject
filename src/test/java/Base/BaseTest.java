@@ -27,10 +27,7 @@ public class BaseTest {
         return new LoginPage(getDriver());
     }
 
-    protected CartPage loginAndPrepareProduct(String product) {
-        navigateToLoginPage();
-        loginPage().loginWithValidEmail("eslamfathi880@gmail.com", "111111");
-        new CartPage(getDriver()).clearCart();
+    protected CartPage PrepareProduct(String product) {
         search(product);
         new ProductPage(getDriver()).listVisible().titleVisibility().chooseProduct();
         return new CartPage(getDriver());
